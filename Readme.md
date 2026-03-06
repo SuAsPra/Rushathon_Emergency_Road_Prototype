@@ -1,38 +1,40 @@
 # 🚗 AI Road Condition Detection & SOS Alert System
-
-Sample image for dashboard - <img width="1919" height="726" alt="image" src="https://github.com/user-attachments/assets/187aa76b-39dd-4914-b4b8-8c2d36bc93ca" />
-Sample image for maps - 
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/3d0c0d60-2db5-4478-ad9b-fa90c8e3a4d6" />
-
 An intelligent road monitoring system that uses **AI, computer vision, and GPS** to detect road anomalies such as **potholes and speed breakers** while automatically logging their locations to a backend server. The system also includes an **SOS emergency alert feature** that sends notifications to a **Telegram bot** with the vehicle’s location.
+Team - 11 - Suriyan Loganathan, Udhayadev G S, Dhakshnamoorthy J
+
+Sample image for dashboard - <img width="1519" height="526" alt="image" src="https://github.com/user-attachments/assets/187aa76b-39dd-4914-b4b8-8c2d36bc93ca" />
+<img width="1912" height="667" alt="image" src="https://github.com/user-attachments/assets/ab456f52-87cb-4de7-8f13-6870707086c3" />
+
+Sample image for maps - 
+<img width="1519" height="779" alt="image" src="https://github.com/user-attachments/assets/3d0c0d60-2db5-4478-ad9b-fa90c8e3a4d6" />
+<img width="1080" height="617" alt="image" src="https://github.com/user-attachments/assets/201c245e-49ee-48e5-b19a-cd3eac97cf8b" />
+Telegram in emergency contacts phone when there is an SOS alert - ![WhatsApp Image 2026-03-06 at 4 31 13 PM](https://github.com/user-attachments/assets/899ae387-4e61-4dd6-a1fb-99603723d23f)
 
 ---
 
 # 📌 Project Overview
 
-This project combines **Flutter (mobile app)**, **TensorFlow Lite (AI model)**, and a **Node.js + MongoDB backend** to create a real-time road monitoring platform.
+This project uses **Flutter, TensorFlow Lite, and a Node.js + MongoDB backend** to build a real-time road monitoring system. The mobile app captures images, detects road conditions using an AI model, and sends the results with GPS coordinates to the backend. The server stores detections and visualizes them on a **web dashboard and Google Maps**.
 
-The mobile application continuously captures images from the camera, runs an AI model to detect road conditions, and sends the results along with GPS coordinates to a backend server. The backend stores detections in a database and visualizes them through a web interface and Google Maps.
-
-Additionally, an **SOS emergency button** allows users to send their location instantly to the backend and receive an alert via **Telegram bot notification**.
+An **SOS emergency button** allows users to send their location instantly, triggering a **Telegram bot alert**.
 
 ---
 
 # ⚙️ System Architecture
 
-Flutter Mobile App
-⬇
-Camera + TensorFlow Lite Model
-⬇
+Flutter App
+↓
+Camera + TensorFlow Lite
+↓
 GPS Location (Geolocator)
-⬇
-Node.js Backend API
-⬇
+↓
+Node.js API
+↓
 MongoDB Database
-⬇
-Web Dashboard + Google Maps Visualization
-⬇
-Telegram Bot Alerts (SOS)
+↓
+Web Dashboard + Google Maps
+↓
+Telegram SOS Alerts
 
 ---
 
@@ -43,76 +45,69 @@ Telegram Bot Alerts (SOS)
 * Detects **Normal Road**
 * Detects **Potholes**
 * Detects **Speed Breakers**
-* Uses **TensorFlow Lite model**
+* Runs using **TensorFlow Lite**
 
 ### 📍 GPS Tracking
 
-* Captures **latitude, longitude, and timestamp**
-* Sent to backend with every detection
+* Captures **latitude, longitude, timestamp**
+* Sends location with every detection
 
 ### 🗄 Backend Logging
 
 * Stores detections in **MongoDB**
-* Displays data in **web table dashboard**
+* Displays logs in a **web dashboard**
 
 ### 🗺 Map Visualization
 
-* Google Maps page displaying detected road anomalies
-* Color coded markers:
+* Google Maps showing detected road issues
+* Color markers:
 
-  * 🔴 Red → Pothole
-  * 🟠 Orange → Speed Breaker
-  * 🟢 Green → Normal
+  * 🔴 Pothole
+  * 🟠 Speed Breaker
+  * 🟢 Normal Road
 
 ### 🚨 SOS Emergency Alert
 
-* Emergency button inside Flutter app
-* Sends real-time GPS location to backend
-* Backend sends alert to **Telegram Bot**
+* SOS button in mobile app
+* Sends GPS location to backend
+* Backend triggers **Telegram bot notification**
 
-Example Telegram alert:
+Example alert:
 
 🚨 SOS ALERT
-Vehicle TN07-XYX-123 has sent an emergency alert
+Vehicle TN07-XYX-123 sent an emergency alert
 
 Latitude: 13.0827
 Longitude: 80.2707
 
-Google Maps:
 https://maps.google.com/?q=13.0827,80.2707
 
 ---
 
 # 🧠 Technologies Used
 
-### Mobile App
+**Mobile App**
 
 * Flutter
 * Dart
-* Camera Plugin
+* Camera
 * Geolocator
 * TensorFlow Lite
-* HTTP package
 
-### AI Model
-
-* TensorFlow
-* TensorFlow Lite
-
-### Backend
+**Backend**
 
 * Node.js
-* Express.js
+* Express
 * MongoDB
 * Mongoose
 * Axios
 
-### Visualization
+**Visualization**
 
 * HTML / CSS
-* Google Maps JavaScript API
+* Google Maps API
 
-### Alerts
+**Alerts**
 
 * Telegram Bot API
 
@@ -125,12 +120,11 @@ road_detector_project
 │
 ├── flutter_app
 │   ├── main.dart
-│   ├── model.tflite
-│   └── assets
+│   └── model.tflite
 │
 ├── road_backend
 │   ├── server.js
-│   ├── package.json
+│   └── package.json
 │
 └── README.md
 ```
@@ -139,227 +133,76 @@ road_detector_project
 
 # 🛠 Installation
 
-## 1️⃣ Clone Repository
+### Clone repository
 
 ```
 git clone https://github.com/yourusername/road-detector-ai.git
 ```
 
----
-
-# 📱 Flutter App Setup
-
-Install dependencies
+### Flutter App
 
 ```
 flutter pub get
-```
-
-Run the app
-
-```
 flutter run
 ```
 
 Required permissions:
 
-AndroidManifest.xml
+* Camera
+* Location
+* Internet
 
-```
-Camera
-Location
-Internet
-```
-
----
-
-# 🌐 Backend Setup
-
-Navigate to backend folder
+### Backend
 
 ```
 cd road_backend
-```
-
-Install dependencies
-
-```
 npm install
-```
-
-Run server
-
-```
 node server.js
 ```
 
-Server runs on:
+Server runs at:
 
 ```
 http://localhost:5000
 ```
-
----
-
-# 🗄 MongoDB Setup
-
-Create a **MongoDB Atlas cluster** and replace the connection string inside:
-
-```
-server.js
-```
-
-Example:
-
-```
-mongoose.connect("your_mongodb_connection_url")
-```
-
----
-
-# 🤖 Telegram Bot Setup
-
-1️⃣ Open Telegram
-2️⃣ Search **@BotFather**
-3️⃣ Create a bot using
-
-```
-/newbot
-```
-
-4️⃣ Copy the bot token.
-
-Example:
-
-```
-123456789:ABCDEF
-```
-
----
-
-### Get Chat ID
-
-Open browser:
-
-```
-https://api.telegram.org/bot<TOKEN>/getUpdates
-```
-
-Send a message to your bot first.
-
-Example response:
-
-```
-"chat": {
-"id": 7474363345
-}
-```
-
-Use this ID in `server.js`.
 
 ---
 
 # 🌍 Web Dashboard
 
-Open browser:
+Detection logs:
 
 ```
 http://localhost:5000
 ```
 
-Displays:
-
-* Detection table
-* Road condition logs
-
----
-
-# 🗺 Google Maps View
+Map visualization:
 
 ```
 http://localhost:5000/map
 ```
 
-Displays detected road issues on a map.
-
 ---
 
 # 📡 API Endpoints
 
-### Save AI Detection
+**Save Detection**
 
 ```
 POST /api/detection
 ```
 
-Body
-
-```
-{
- latitude,
- longitude,
- timestamp,
- prediction,
- confidence
-}
-```
-
----
-
-### Send SOS Alert
+**Send SOS**
 
 ```
 POST /api/sos
 ```
-
-Body
-
-```
-{
- latitude,
- longitude,
- timestamp
-}
-```
-
----
-
-# 🧪 Example Workflow
-
-1️⃣ App captures road image
-2️⃣ AI model predicts road condition
-3️⃣ GPS location captured
-4️⃣ Data sent to backend
-5️⃣ Backend logs detection
-6️⃣ Map updated with marker
-
-If **SOS button pressed**
-
-7️⃣ Backend receives SOS
-8️⃣ Telegram bot sends emergency alert
-
----
-
-# 📈 Future Improvements
-
-* Automatic **accident detection using phone accelerometer**
-* Real-time **vehicle speed detection**
-* Edge AI optimization
-* Road quality analytics dashboard
-* Integration with **smart city infrastructure**
 
 ---
 
 # 👨‍💻 Author
 
 Suriyan L
-
----
-
-# 📜 License
-
-This project is for **research and educational purposes**.
-
 
 
 <img width="576" height="1280" alt="image" src="https://github.com/user-attachments/assets/955da113-de75-4f42-a233-ab7815c767a1" />
